@@ -1,6 +1,6 @@
 # Memory Allocator
 
-This project is my implementation of a memory allocator in C. Building this to learn systems programming concepts—how memory allocation works, virtual memory, and the interaction between programs and the OS.
+This project is my implementation of a memory allocator in C. Building this as part of learning systems programming concepts—how memory allocation works, virtual memory, and the interaction between programs and the OS.
 
 ### Notes
 
