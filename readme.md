@@ -15,10 +15,10 @@
 
 ### TODOs
 
-1. I need to know how can I use heap segment for allocations
+1. I need to know how can I use the heap segment for allocations.
    - Use getpid to get the file descriptor id of the program
    - Use mmap to perform a system call to the os for reservation of a free memory block for the program (mmap is expensive as it requires a system call resulting to a context switch, that is why mmap is only use to allocate the heap segment then let the malloc do the management)
-2. I have to setup the data structure for managing the heap
+2. I have to setup the data structure for managing the heap.
 
 ### Reference
 
