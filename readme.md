@@ -1,5 +1,9 @@
 # Memory Allocator
 
+This project is my implementation of a memory allocator in C. Building this to learn systems programming concepts—how memory allocation works, virtual memory, and the interaction between programs and the OS.
+
+### Notes
+
 - Malloc returns size bytes of memory and returns a pointer to the allocated memory
 - When malloc needs more memory from the system, it uses one of two system calls:
   1. **brk/sbrk** - Adjusts the program break (the end of the heap segment). This grows the heap linearly and is used for smaller allocations.
