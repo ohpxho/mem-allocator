@@ -1,27 +1,20 @@
 #include <stdlib.h>
-#include <sys/mman.h>
 #include <unistd.h>
 
-typedef struct {
-  size_t free_sz;
-  size_t total_sz;
-} heap_segm;
-
+// 24 bytes per block
+// sz = 8
+// next = 8
+// prev = 8
+// data offset = header addr + header sz
 typedef struct {
   size_t sz;
-  struct mem_chunk *next;
-} mem_chunk_mdt;
-
-typedef struct {
-  struct mem_chunk *next;
-  struct mem_chunk *prev;
-} mem_chunk;
+  void *next;
+  void *prev;
+} heapblk;
 
 void *imalloc(size_t sz) {
   int pid = getpid();
-
-  // void *haddr = mmap(hmd.addr, sz, PROT_WRITE | PROT_READ, MAP_SHARED, pid,
-  // 0);
+  void *heapaddr;
 
   return NULL;
 }
