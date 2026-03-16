@@ -1,22 +1,26 @@
-#include <stdlib.h>
+#include "malloc.h"
+#include <stdio.h>
+#include <sys/mman.h>
 #include <unistd.h>
-
-// 24 bytes per block
-// sz = 8
-// next = 8
-// prev = 8
-// data offset = header addr + header sz
-typedef struct {
-  size_t sz;
-  void *next;
-  void *prev;
-} heapblk;
 
 void *imalloc(size_t sz) {
   int pid = getpid();
-  void *heapaddr;
+  void *heapaddr = mmap(NULL, sz, PROT_READ | PROT_WRITE,
+                        MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
-  return NULL;
+  if (heapaddr == MAP_FAILED) {
+    printf("fuck\n");
+    return NULL;
+  }
+
+  const Heapblk mem = {
+      .sz = sz,
+      .addr = heapaddr,
+      .next = NULL,
+      .prev = NULL,
+  };
+
+  return heapaddr;
 }
 
 void ifree() {}
